@@ -1,17 +1,7 @@
-<div class="row add-bookmark">
-<%= form_for @bookmark, html: { class: "form-inline new-bookmark"}, remote: true do |f| %>
-	<div class="col-md-9">
-	<%= f.text_field :link, label: false, placeholder: "Bookmark Something...", class: "form-control" %>
-	</div>
-	<div class="col-md-3">
-	<%= f.submit "Add", class: "btn btn-primary" %>
-	</div>
-<% end %>
-</div>
-
-
 <div class="row">
 	<div id="bookmarks-list">
 		<%= render "bookmarks/bookmarks_list" %>
 	</div>
 </div>
+
+<%= render 'bookmark_modal' %>

@@ -4,6 +4,12 @@
 	<li class="sidebar-item"><i class="fa fa-archive"></i>  Archived</li>
 	<li class="sidebar-item"><i class="fa fa-sticky-note"></i>  Notes</li>
 	<hr>
+	<li class="sidebar-item">
+		<%= link_to "#", data: {toggle: "modal", target: "#addBookmark"} do %>
+			<i class="fa fa-plus"></i> Add Link
+		<% end %>
+	</li>
+	<hr>
 	<li class="sidebar-item">Ebay</li>
 	<li class="sidebar-item">Work</li>
 </ul>

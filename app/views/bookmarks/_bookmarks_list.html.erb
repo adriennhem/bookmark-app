@@ -1,16 +1,27 @@
 <% @bookmarks.each do |bookmark| %>
-	<%= link_to "#{bookmark.link}" do %>
-	<div class="bookmark-item">
-		
-		<% if bookmark.favicon %>
-			<%= image_tag bookmark.favicon, class: "favicon" %>
-		<% end %>
-		<%= bookmark.title %> <br>
-		<%= link_to "destroy", bookmark_path(bookmark), method: :delete, remote: true %>
- 		
- 		<div class="bookmark-item-actions pull-right">
- 			
+	<div class="bookmark-item col-md-12">
+		<div class="col-md-9">
+			<% if bookmark.favicon %>
+				<%= image_tag bookmark.favicon, class: "favicon" %>
+			<% end %>
+			<%= bookmark.title %> <br>
+			<%= bookmark.description %>
+		</div>
+ 		<div class="col-md-3">
+	 		<div class="bookmark-item-actions pull-right">
+	 			<%= link_to bookmark_path(bookmark), remote: true do %>
+	 				<i class="fa fa-heart active"></i>
+	 			<% end %>
+	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
+	 				<i class="fa fa-share"></i>
+	 			<% end %>
+	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
+	 				<i class="fa fa-archive"></i>
+	 			<% end %>
+	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
+	 				<i class="fa fa-trash"></i>
+	 			<% end %>
+	 		</div>
  		</div>
 	</div>
-	<% end %>
 <% end %>
