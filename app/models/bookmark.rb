@@ -1,4 +1,5 @@
 class Bookmark < ApplicationRecord
+	belongs_to :user
 	validates :link, url: true
 	before_create :set_metadata
 

@@ -1,9 +1,17 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @bookmarks = Bookmark.all
+    @bookmark = current_user.bookmarks.build 
+  end
+
+
   def new
   end
 
   def create
-    @bookmark = Bookmark.create(bookmark_params)
+    @bookmark = current_user.bookmarks.build(bookmark_params)
     respond_to do |format|
     if @bookmark.save 
       flash[:notice] = "Successfully Saved"
@@ -26,11 +34,6 @@ class BookmarksController < ApplicationController
       format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully destroyed.' }
       format.json { render :destroy, status: :no_content }
     end
-  end
-
-  def index
-    @bookmarks = Bookmark.all
-    @bookmark = Bookmark.new 
   end
 
   def show
