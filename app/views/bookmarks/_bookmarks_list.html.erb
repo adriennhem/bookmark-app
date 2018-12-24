@@ -1,15 +1,16 @@
-<table>
-	<tr>
-		<th>My Bookmarks</th>
-	</tr>
-	<% @bookmarks.each do |bookmark| %>
-	<tr>
-  		<td><%= link_to bookmark.link, "#{bookmark.link}", target: "_nblank" %></td>	
-	</tr>
-	<tr>
-		<td>
-			<%= link_to "destroy", bookmark_path(bookmark), method: :delete, remote: true %>
-		</td>
-	</tr>
+<% @bookmarks.each do |bookmark| %>
+	<%= link_to "#{bookmark.link}" do %>
+	<div class="bookmark-item">
+		
+		<% if bookmark.favicon %>
+			<%= image_tag bookmark.favicon, class: "favicon" %>
+		<% end %>
+		<%= bookmark.title %> <br>
+		<%= link_to "destroy", bookmark_path(bookmark), method: :delete, remote: true %>
+ 		
+ 		<div class="bookmark-item-actions pull-right">
+ 			
+ 		</div>
+	</div>
 	<% end %>
-</table>
+<% end %>

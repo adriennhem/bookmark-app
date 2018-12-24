@@ -7,11 +7,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
 
-  <body>
+  <body id="body">
     <div class="container">
-      <div class="col-md-4 col-md-offset-4">
+      <div class="col-md-3">
+        <%= render 'layouts/sidebar' %>
+      </div>
+      <div class="col-md-9">
         <%= yield %>
       </div>
     </div>
