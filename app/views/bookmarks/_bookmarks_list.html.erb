@@ -1,0 +1,15 @@
+<table>
+	<tr>
+		<th>My Bookmarks</th>
+	</tr>
+	<% @bookmarks.each do |bookmark| %>
+	<tr>
+  		<td><%= link_to bookmark.link, "#{bookmark.link}", target: "_nblank" %></td>	
+	</tr>
+	<tr>
+		<td>
+			<%= link_to "destroy", bookmark_path(bookmark), method: :delete, remote: true %>
+		</td>
+	</tr>
+	<% end %>
+</table>

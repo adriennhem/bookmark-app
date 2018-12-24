@@ -1,0 +1,10 @@
+<h1>My Bookmarks</h1>
+
+<%= form_for @bookmark, remote: true do |f| %>
+	<%= f.text_field :link, label: false, placeholder: "Bookmark Something...", class: "form-control" %>
+	<%= f.submit "Add" %>
+<% end %>
+
+<div id="bookmarks-list">
+	<%= render "bookmarks/bookmarks_list" %>
+</div>
