@@ -34,6 +34,9 @@ gem 'jquery-rails'
 gem 'valid_url'
 gem 'link_thumbnailer'
 
+gem 'devise'
+
+
 
 
 # Reduces boot times through caching; required in config/boot.rb

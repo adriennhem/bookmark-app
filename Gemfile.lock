@@ -51,6 +51,7 @@ GEM
     ast (2.4.0)
     autoprefixer-rails (9.4.3)
       execjs
+    bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
@@ -82,6 +83,12 @@ GEM
     concurrent-ruby (1.1.4)
     connection_pool (2.2.2)
     crass (1.0.4)
+    devise (4.5.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.8.0)
     ethon (0.11.0)
       ffi (>= 1.3.0)
@@ -140,6 +147,7 @@ GEM
     oga (2.15)
       ast
       ruby-ll (~> 2.1)
+    orm_adapter (0.5.0)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -174,6 +182,9 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.3.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     ruby-ll (2.1.2)
       ansi
       ast
@@ -228,6 +239,8 @@ GEM
       iso8601 (~> 0.9.1)
       net_http_timeout_errors (~> 0.3.0)
       oga (~> 2.7)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -249,6 +262,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  devise
   jbuilder (~> 2.5)
   jquery-rails
   link_thumbnailer
