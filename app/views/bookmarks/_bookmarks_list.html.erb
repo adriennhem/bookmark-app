@@ -15,7 +15,7 @@
 	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
 	 				<i class="fa fa-share"></i>
 	 			<% end %>
-	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
+	 			<%= link_to toggle_active_bookmark_path(bookmark), method: :patch, remote: true do %>
 	 				<i class="fa fa-archive"></i>
 	 			<% end %>
 	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
@@ -25,3 +25,5 @@
  		</div>
 	</div>
 <% end %>
+
+

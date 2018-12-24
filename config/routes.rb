@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root 'bookmarks#index'
   resources :bookmarks do
   	get 'liked', on: :collection
+  	get 'archived', on: :collection
+  	member do 
+  	  patch :toggle_active
+  	end
   	resources :likes
   end 
 

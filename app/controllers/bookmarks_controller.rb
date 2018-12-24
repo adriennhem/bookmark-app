@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookmarks = current_user.bookmarks.last(10)
+    @bookmarks = current_user.bookmarks.where(active: true).last(10)
     @bookmark = current_user.bookmarks.build 
   end
 
@@ -40,7 +40,22 @@ class BookmarksController < ApplicationController
   end
 
   def liked
+    @bookmark = current_user.bookmarks.build 
     @bookmarks = Bookmark.joins(:likes).where(likes: {user_id: current_user.id }).last(10)
+  end
+
+  def archived
+    @bookmark = current_user.bookmarks.build 
+    @bookmarks = current_user.bookmarks.where(active: false).last(10)
+  end
+
+  def toggle_active
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.update(active: !@bookmark.active?)
+    respond_to do |format|
+      format.html { redirect_to request.referrer }
+      format.json { render :toggle_active, status: :no_content }
+    end
   end
 
   private
