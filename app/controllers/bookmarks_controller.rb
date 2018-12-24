@@ -2,7 +2,7 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks.last(10)
     @bookmark = current_user.bookmarks.build 
   end
 
@@ -37,6 +37,10 @@ class BookmarksController < ApplicationController
   end
 
   def show
+  end
+
+  def liked
+    @bookmarks = Bookmark.joins(:likes).where(likes: {user_id: current_user.id }).last(10)
   end
 
   private
