@@ -7,12 +7,16 @@ class BookmarksController < ApplicationController
     @bookmark = current_user.bookmarks.build 
   end
 
+  def show
+  end
+
 
   def new
   end
 
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
+    current_user.tag(@bookmark, on: :tags, with: params[:bookmark][:tag_list])
     respond_to do |format|
     if @bookmark.save 
       flash[:notice] = "Successfully Saved"
@@ -35,9 +39,6 @@ class BookmarksController < ApplicationController
       format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully destroyed.' }
       format.json { render :destroy, status: :no_content }
     end
-  end
-
-  def show
   end
 
   def liked
@@ -66,6 +67,6 @@ class BookmarksController < ApplicationController
   end
 
   def set_tags
-    @tags =  ActsAsTaggableOn::Tag.most_used(10)
+    @tags =  current_user.owned_tags.most_used(10)
   end
 end

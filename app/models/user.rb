@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_tagger
   has_many :bookmarks
   has_many :likes 
   # Include default devise modules. Others available are:
