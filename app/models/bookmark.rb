@@ -1,4 +1,5 @@
 class Bookmark < ApplicationRecord
+	acts_as_ordered_taggable
 	belongs_to :user
 	has_many :likes 
 	validates :link, url: true

@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_tags, except: [:create, :update, :destroy, :toggle_active]
 
   def index
     @bookmarks = current_user.bookmarks.where(active: true).last(10)
@@ -41,7 +42,7 @@ class BookmarksController < ApplicationController
 
   def liked
     @bookmark = current_user.bookmarks.build 
-    @bookmarks = Bookmark.joins(:likes).where(likes: {user_id: current_user.id }).last(10)
+    @bookmarks = Bookmark.where(active: true).joins(:likes).where(likes: {user_id: current_user.id }).last(10)
   end
 
   def archived
@@ -61,6 +62,10 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:link)
+    params.require(:bookmark).permit(:link, :tag_list)
+  end
+
+  def set_tags
+    @tags =  ActsAsTaggableOn::Tag.most_used(10)
   end
 end

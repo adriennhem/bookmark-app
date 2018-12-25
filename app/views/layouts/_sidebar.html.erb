@@ -23,7 +23,9 @@
 		<% end %>
 	</li>
 	<hr>
-	<li class="sidebar-item">Ebay</li>
-	<li class="sidebar-item">Work</li>
+	<% @tags.each do |tag| %>
+		<li class="sidebar-item"># <%= tag %> <%= tag.taggings_count %></li>
+	<% end %>
+
 </ul>
 

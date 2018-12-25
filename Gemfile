@@ -33,7 +33,7 @@ gem 'jquery-rails'
 # Bookmarks
 gem 'valid_url'
 gem 'link_thumbnailer'
-
+gem 'acts-as-taggable-on', '~> 6.0'
 gem 'devise'
 
 

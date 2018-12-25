@@ -5,12 +5,13 @@
 				<%= image_tag bookmark.favicon, class: "favicon" %>
 			<% end %>
 			<%= bookmark.title %> <br>
-			<%= bookmark.description %>
+			<%= bookmark.description %> <br>
+			<b><%= bookmark.tag_list %></b> 
 		</div>
  		<div class="col-md-3">
 	 		<div class="bookmark-item-actions pull-right">
 	 			<%= link_to bookmark_likes_path(bookmark), method: :post do %>
-	 				<i class="fa fa-heart <% if bookmark.likes.length != 0 %>active<% end %>"></i>
+	 				<i class="far fa-heart <% if bookmark.likes.length != 0 %>active<% end %>"></i>
 	 			<% end %>
 	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
 	 				<i class="fa fa-share"></i>
