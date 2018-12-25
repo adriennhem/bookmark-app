@@ -24,7 +24,11 @@
 	</li>
 	<hr>
 	<% @tags.each do |tag| %>
-		<li class="sidebar-item"># <%= tag %> <%= tag.taggings_count %></li>
+		<li class="sidebar-item">
+			<%= link_to bookmarks_path(tag: tag.name) do %>
+			 <b># <%= tag %></b>  <span class="badge"><%= tag.taggings_count %></span> 
+			<% end %>
+		</li>
 	<% end %>
 
 </ul>

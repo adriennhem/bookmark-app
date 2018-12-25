@@ -3,8 +3,12 @@ class BookmarksController < ApplicationController
   before_action :set_tags, except: [:create, :update, :destroy, :toggle_active]
 
   def index
-    @bookmarks = current_user.bookmarks.where(active: true).last(10)
     @bookmark = current_user.bookmarks.build 
+    if params[:tag].present?
+      @bookmarks = current_user.bookmarks.tagged_with(params[:tag])
+    else
+      @bookmarks = current_user.bookmarks.where(active: true).last(10)
+    end
   end
 
   def show
