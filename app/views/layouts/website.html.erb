@@ -9,20 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-
   </head>
 
-  <body id="body">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class="container">
-      <div class="col-md-3">
-        <%= render 'layouts/sidebar' if controller.controller_name == "bookmarks" %>
-      </div>
-      <div class="col-md-9">
-        <%= yield %>
-      </div>
-    </div>
+  <body id="marketing">
+    <%= render 'shared/navbar' %>
+    <%= yield %>
   </body>
 </html>

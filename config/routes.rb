@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'bookmarks#index'
+  root 'pages#home'
   resources :bookmarks do
   	get 'liked', on: :collection
   	get 'archived', on: :collection

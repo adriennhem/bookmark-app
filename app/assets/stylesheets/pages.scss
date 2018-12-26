@@ -1,0 +1,43 @@
+/* NAVBAR MARKETING WEBSITE */
+
+.navbar-default {
+	background-color: #fff !important;
+	border-color: #fff !important;
+}
+
+.navbar .mark {
+  display: inline-block;
+  line-height: 0em;
+  padding-bottom: 0.5em;
+  background-color: #FFEB3B;
+}
+
+.navbar .navbar-brand {
+	font-weight: 700;
+	color: #000 !important;
+}
+
+.navbar .navbar-brand:hover {
+	opacity: 0.9
+}
+
+/* DEVISE */
+
+.btn-form {
+	width: 100%;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	font-weight: 700 !important;
+}
+
+.btn-form:hover {
+	opacity: 0.5;
+}
+
+.btn.btn-primary:disabled, .btn.btn-primary:active, .btn.btn-primary:active:focus {
+	background-color: #FFEB3B !important;
+	border: none;
+	outline: none !important;
+}
+
+

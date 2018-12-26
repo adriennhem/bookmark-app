@@ -35,7 +35,12 @@
 		<%= link_to edit_user_registration_path do %>
 		<span class="fas fa-user-edit"></span> Edit Profile
 		<% end %>	
-		</li>
+	</li>
+	<li class="sidebar-item">
+		<%= link_to destroy_user_session_path, method: :delete do %>
+		<span class="fas fa-user"></span> Sign Out
+		<% end %>	
+	</li>
 
 </ul>
 

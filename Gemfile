@@ -28,14 +28,16 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'jquery-rails'
 
-
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Bookmarks
 gem 'valid_url'
 gem 'link_thumbnailer'
 gem 'acts-as-taggable-on', '~> 6.0'
-gem 'devise'
 gem 'algoliasearch-rails'
+
 gem 'figaro'
 
 
