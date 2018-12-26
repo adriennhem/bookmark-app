@@ -5,9 +5,6 @@
 	font-family: 'Lora', serif;
 }
 
-#body .container {
-	margin-top: 30px;
-}
 
 a {
 	color: #000;
@@ -29,19 +26,6 @@ h1, h2, h3, h4, h5, h6, .sidebar, .btn {
 
 .sidebar {
 	list-style: none;
-}
-
-.sidebar-brand {
-	font-size: 28px;
-	font-weight: 700;
-	margin-bottom: 30px;
-}
-
-.sidebar .mark {
-  display: inline-block;
-  line-height: 0em;
-  padding-bottom: 0.5em;
-  background-color: #FFEB3B;
 }
 
 .sidebar-item {
@@ -179,4 +163,70 @@ button.ais-search-box--reset {
 	height: 24px !important;
 	width: 24px !important;
 }
+
+/* NAVBAR MARKETING WEBSITE */
+
+.navbar-default {
+	background-color: #FFEB3B !important;
+	border-color: #fff !important;
+}
+
+.navbar-default a {
+	color: #000 !important;
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar .mark {
+  display: inline-block;
+  line-height: 0em;
+  padding-bottom: 0.5em;
+}
+
+.navbar .navbar-brand {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5em; 
+	font-weight: 700;
+	color: #000 !important;
+	padding-left: 50px;
+}
+
+.navbar .navbar-brand:hover {
+	opacity: 0.9
+}
+
+.navbar .btn-nav {
+	background-color: #000;
+	color: #FFEB3B !important;
+	font-weight: 700;
+	padding: 5px 10px;
+	position: relative;
+	top: 10px;
+}
+
+.navbar .btn-nav:hover {
+	background-color: #000 !important;
+	color: #FFEB3B !important;
+	font-weight: 700;
+}
+
+.navbar .btn-nav:active {
+	background-color: #000 !important;
+	color: #FFEB3B !important;
+	font-weight: 700;
+}
+
+.navbar .btn-nav:active:focus {
+	background-color: #000 !important;
+	color: #FFEB3B !important;
+	font-weight: 700;
+}
+
+.navbar .btn-nav:disabled {
+	background-color: #000 !important;
+	color: #FFEB3B !important;
+	font-weight: 700;
+}
+
+
+
 

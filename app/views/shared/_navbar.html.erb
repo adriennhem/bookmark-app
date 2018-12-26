@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -8,13 +8,18 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to root_path, class: "navbar-brand" do %>
-        <span class="mark">InstaPaper</span>
+        InstaPaper
       <% end %>
     </div>
 
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+          <li class="nav-btn">
+           <%= link_to "#", data: {toggle: "modal", target: "#addBookmark"}, class: "btn btn-nav" do %>
+      <i class="fa fa-plus"></i> Add Link
+          <% end %>
+       </li>
         <% if user_signed_in? %>
           <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
           </li>

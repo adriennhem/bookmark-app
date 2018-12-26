@@ -1,5 +1,4 @@
 <ul class="sidebar">
-	<li class="sidebar-brand"><span class="mark">InstaPaper</span></li>
 	<li class="sidebar-item">
 		<%= link_to bookmarks_path do %>
 			<i class="fa fa-igloo"></i> Home
@@ -16,12 +15,7 @@
 		<% end %>
 	</li>
 	<li class="sidebar-item"><i class="far fa-comment-alt"></i>  Notes</li>
-	<hr>
-	<li class="sidebar-item">
-		<%= link_to "#", data: {toggle: "modal", target: "#addBookmark"} do %>
-			<i class="fa fa-plus"></i> Add Link
-		<% end %>
-	</li>
+
 	<hr>
 	<% @tags.each do |tag| %>
 		<li class="sidebar-item">
@@ -30,17 +24,5 @@
 			<% end %>
 		</li>
 	<% end %>
-	<hr>
-	<li class="sidebar-item">
-		<%= link_to edit_user_registration_path do %>
-		<span class="fas fa-user-edit"></span> Edit Profile
-		<% end %>	
-	</li>
-	<li class="sidebar-item">
-		<%= link_to destroy_user_session_path, method: :delete do %>
-		<span class="fas fa-user"></span> Sign Out
-		<% end %>	
-	</li>
-
 </ul>
 
