@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_25_000837) do
+ActiveRecord::Schema.define(version: 2018_12_25_155829) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.string "link"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2018_12_25_000837) do
     t.string "favicon"
     t.integer "user_id"
     t.boolean "active", default: true
+    t.integer "viewable_by"
   end
 
   create_table "likes", force: :cascade do |t|

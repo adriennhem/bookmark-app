@@ -1,0 +1,7 @@
+<div id="modal-edit-fields">
+<%= form_for @bookmark do |f| %>
+	<%= f.text_field :title, class: "form-control" %>
+	<%= f.text_field :tag_list, class: "form-control"  %>
+	<%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>
+</div>

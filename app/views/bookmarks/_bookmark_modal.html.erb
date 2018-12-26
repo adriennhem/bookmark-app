@@ -14,6 +14,8 @@
             <div class="col-md-9">
             <%= f.text_field :link, label: false, placeholder: "www.example.com/article.html", class: "form-control" %>
             <%= f.text_field :tag_list %>
+            <%= f.hidden_field :viewable_by, value: current_user.id %>
+
             </div>
             <div class="col-md-3">
             <%= f.submit "Add", class: "btn btn-primary" %>

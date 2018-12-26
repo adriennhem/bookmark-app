@@ -13,6 +13,9 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
-//= require activestorage
+//= require algolia/v3/algoliasearch.min
 //= require turbolinks
+//= require activestorage
 //= require_tree .
+
+

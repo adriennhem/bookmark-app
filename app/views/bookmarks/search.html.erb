@@ -1,0 +1,21 @@
+
+<div class="search-results">
+    <h1>Search results</h1>
+    <p>
+        <span class="faded">There are <%= @hits.count %> results for "<%= @q %>"</span>
+    </p>
+    <% if @hits %>
+      <div class="hits">
+          <% @hits.each do |hit| %>
+            <div class="hit">
+              <div class="hit-date">
+                  <%= raw(hit["created_at"].strftime('%b %d,<br/> %Y')) %>
+              </div>
+              <div class="hit-link">
+                  <%= link_to hit['title'], bookmark_path(hit) %>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+</div>

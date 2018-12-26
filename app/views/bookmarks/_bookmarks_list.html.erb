@@ -10,8 +10,14 @@
 		</div>
  		<div class="col-md-3">
 	 		<div class="bookmark-item-actions pull-right">
-	 			<%= link_to bookmark_likes_path(bookmark), method: :post do %>
-	 				<i class="far fa-heart <% if bookmark.likes.length != 0 %>active<% end %>"></i>
+	 			<% if bookmark.like %>
+					<%= link_to bookmark_like_path(bookmark_id: bookmark.id, id: bookmark.like.id), method: :delete do %>
+		 				<i class="fa fa-heart active"></i>
+		 			<% end %>
+	 			<% else %>
+		 			<%= link_to bookmark_likes_path(bookmark), method: :post do %>
+		 				<i class="far fa-heart"></i>
+		 			<% end %>
 	 			<% end %>
 	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
 	 				<i class="fa fa-share"></i>
@@ -22,6 +28,9 @@
 	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
 	 				<i class="fa fa-trash"></i>
 	 			<% end %>
+	 			<%= link_to "Edit", edit_bookmark_path(bookmark), "data-toggle" => "modal", :class => 'btn btn-mini', :id => 'edit_modal_link', "data-toggle" => "modal" %>
+
+
 	 		</div>
  		</div>
 	</div>

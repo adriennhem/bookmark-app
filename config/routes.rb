@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :bookmarks do
   	get 'liked', on: :collection
   	get 'archived', on: :collection
+    get 'search', on: :collection 
   	member do 
   	  patch :toggle_active
   	end
-  	resources :likes
+  	resources :likes, only: [:create, :destroy]
   end 
 
 

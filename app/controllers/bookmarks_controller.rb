@@ -33,7 +33,18 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def edit
+    @bookmark = Bookmark.find(params[:id])
+  end
+
   def update
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.update(bookmark_params)
+      flash[:notice] = "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+    end
+    redirect_to bookmarks_path
   end
 
   def destroy
@@ -47,7 +58,7 @@ class BookmarksController < ApplicationController
 
   def liked
     @bookmark = current_user.bookmarks.build 
-    @bookmarks = Bookmark.where(active: true).joins(:likes).where(likes: {user_id: current_user.id }).last(10)
+    @bookmarks = Bookmark.where(active: true).joins(:like).where(likes: {user_id: current_user.id }).last(10)
   end
 
   def archived
@@ -64,10 +75,16 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def search
+    @q = params['q']
+    return if @q.blank?
+    @hits = current_user.bookmarks.algolia_search(@q)
+  end
+
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:link, :tag_list)
+    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active)
   end
 
   def set_tags
