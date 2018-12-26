@@ -12,7 +12,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def layout_for_devise
-	  if devise_controller?
+	  if devise_controller? && action_name == "edit"
+	  	"application"
+	  elsif controller_name == "bookmarks"
+	  	"application"
+	  else
 	    "website"
 	  end
   	end
