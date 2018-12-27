@@ -12,8 +12,8 @@
         <div class="row add-bookmark">
           <%= form_for @bookmark, html: { class: "form-inline new-bookmark"}, remote: true do |f| %>
             <div class="col-md-9">
-            <%= f.text_field :link, label: false, placeholder: "www.example.com/article.html", class: "form-control" %>
-            <%= f.text_field :tag_list %>
+            <%= f.text_field :link, label: false, placeholder: "www.example.com/article.html", class: "form-control" %> 
+            <%= f.text_field :tag_list, placeholder: "Add tags" %>
             <%= f.hidden_field :viewable_by, value: current_user.id %>
 
             </div>

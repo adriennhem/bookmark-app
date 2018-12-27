@@ -1,8 +1,14 @@
+$font-title: 'Varela Round', sans-serif;
+$font-text: 'Montserrat', sans-serif;
+
+$dark-grey: #383838;
+$medium-grey: #888888;
+
 /* BODY */
 
 #body {
 	background-color: #f4f4f4;
-	font-family: 'Lora', serif;
+	font-family: $font-text;
 }
 
 
@@ -12,7 +18,7 @@ a {
 
 
 h1, h2, h3, h4, h5, h6, .sidebar, .btn {
-	font-family: 'Roboto', sans-serif;
+	font-family: $font-title;
 }
 
 
@@ -59,6 +65,20 @@ h1, h2, h3, h4, h5, h6, .sidebar, .btn {
 	padding-top: 20px;
 	border-radius: 5px;
 	border: 1px solid #F0F0F0;
+}
+
+.bookmark-title {
+	color: $dark-grey;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+
+.bookmark-url {
+	color: $medium-grey;
+}
+
+.bookmark-tags {
+	margin-top: 5px;
 }
 
 .bookmark-item-actions a {
@@ -174,7 +194,7 @@ button.ais-search-box--reset {
 
 .navbar-default a {
 	color: #000 !important;
-	font-family: 'Roboto', sans-serif;
+	font-family: $font-title;
 }
 
 .navbar .mark {
@@ -184,7 +204,7 @@ button.ais-search-box--reset {
 }
 
 .navbar .navbar-brand {
-	font-family: 'Roboto', sans-serif;
+	font-family: $font-title;
 	font-size: 1.5em; 
 	font-weight: 700;
 	color: #000 !important;
@@ -195,13 +215,14 @@ button.ais-search-box--reset {
 	opacity: 0.9
 }
 
+.navbar .navbar-left {
+	width: 50%;
+}
+
 .navbar .btn-nav {
 	background-color: #000;
 	color: #FFEB3B !important;
 	font-weight: 700;
-	padding: 5px 10px;
-	position: relative;
-	top: 10px;
 }
 
 .navbar .btn-nav:hover {

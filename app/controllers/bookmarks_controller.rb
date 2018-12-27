@@ -2,12 +2,13 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_tags, except: [:create, :update, :destroy, :toggle_active]
 
+
   def index
     @bookmark = current_user.bookmarks.build 
     if params[:tag].present?
-      @bookmarks = current_user.bookmarks.tagged_with(params[:tag])
+      @bookmarks = current_user.bookmarks.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
     else
-      @bookmarks = current_user.bookmarks.where(active: true).last(10)
+      @bookmarks = current_user.bookmarks.where(active: true).last(10).paginate(page: params[:page], per_page: 10)
     end
   end
 
@@ -58,12 +59,12 @@ class BookmarksController < ApplicationController
 
   def liked
     @bookmark = current_user.bookmarks.build 
-    @bookmarks = Bookmark.where(active: true).joins(:like).where(likes: {user_id: current_user.id }).last(10)
+    @bookmarks = Bookmark.where(active: true).joins(:like).where(likes: {user_id: current_user.id }).last(10).paginate(page: params[:page], per_page: 10)
   end
 
   def archived
     @bookmark = current_user.bookmarks.build 
-    @bookmarks = current_user.bookmarks.where(active: false).last(10)
+    @bookmarks = current_user.bookmarks.where(active: false).last(10).paginate(page: params[:page], per_page: 10)
   end
 
   def toggle_active
@@ -78,7 +79,7 @@ class BookmarksController < ApplicationController
   def search
     @q = params['q']
     return if @q.blank?
-    @hits = current_user.bookmarks.algolia_search(@q)
+    @hits = current_user.bookmarks.search(@q)
   end
 
   private

@@ -1,11 +1,10 @@
-<%= render 'layouts/search_box' %>
-
-
 <div class="row">
 	<div id="bookmarks-list">
 		<%= render "bookmarks/bookmarks_list" %>
 	</div>
 </div>
+
+<%= will_paginate @bookmarks %>
 
 <%= render 'bookmark_modal' %>
 

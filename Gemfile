@@ -36,14 +36,10 @@ gem 'valid_url'
 gem 'link_thumbnailer'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'algoliasearch-rails'
+gem 'will_paginate', '~> 3.1.0'
+
 
 gem 'figaro'
-
-
-
-
-
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

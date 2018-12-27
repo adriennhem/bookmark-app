@@ -1,12 +1,16 @@
 <% @bookmarks.each do |bookmark| %>
 	<div class="bookmark-item col-md-12">
 		<div class="col-md-9">
+			<p class="bookmark-title">
 			<% if bookmark.favicon %>
 				<%= image_tag bookmark.favicon, class: "favicon" %>
 			<% end %>
-			<%= bookmark.title %> <br>
-			<%= bookmark.description %> <br>
-			<b><%= bookmark.tag_list %></b> 
+			<%= bookmark.title %>
+			</p>
+			<p><%= link_to bookmark.link, bookmark.link, class: "bookmark-url" %></p> 
+			<%= bookmark.description %>
+			<p class="bookmark-tags"><b><%= bookmark.tag_list %></b></p>
+			 
 		</div>
  		<div class="col-md-3">
 	 		<div class="bookmark-item-actions pull-right">
