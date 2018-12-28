@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
-  before_action :authenticate_user!
+  require 'will_paginate/array'
+  # before_action :authenticate_user!
   before_action :set_tags, except: [:create, :update, :destroy, :toggle_active]
 
 
@@ -85,7 +86,7 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active)
+    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active, :title)
   end
 
   def set_tags
