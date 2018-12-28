@@ -27,7 +27,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save 
       flash[:notice] = "Successfully Saved"
       format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully created.' }
-      format.json { render :create, status: :created }
+      format.json { render @bookmarks }
     else
       flash[:error] = "Something went wrong..."
       redirect_to request.referrer
@@ -54,7 +54,7 @@ class BookmarksController < ApplicationController
     @bookmark.destroy 
     respond_to do |format|
       format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully destroyed.' }
-      format.json { render :destroy, status: :no_content }
+      format.json { render @bookmarks }
     end
   end
 
@@ -73,7 +73,7 @@ class BookmarksController < ApplicationController
     @bookmark.update(active: !@bookmark.active?)
     respond_to do |format|
       format.html { redirect_to request.referrer }
-      format.json { render :toggle_active, status: :no_content }
+      format.json { render @bookmark }
     end
   end
 
