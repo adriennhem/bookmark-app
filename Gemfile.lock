@@ -364,6 +364,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   pg
+  public_suffix
   puma (~> 3.11)
   rails (~> 5.2.2)
   rails-controller-testing

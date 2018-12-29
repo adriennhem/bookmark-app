@@ -37,6 +37,8 @@ gem 'metainspector'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'algoliasearch-rails'
 gem 'will_paginate', '~> 3.1.0'
+gem 'public_suffix'
+
 
 
 gem 'figaro'

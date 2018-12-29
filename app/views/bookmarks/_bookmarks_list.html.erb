@@ -1,14 +1,15 @@
 <% @bookmarks.each do |bookmark| %>
-	<div class="bookmark-item col-md-12">
-		<div class="col-md-9 col-sm-12">
+	<div class="bookmark-item col-md-12">	
+		<div class="col-md-10 col-sm-12">
+			
 			<p class="bookmark-title">
-			<% if bookmark.favicon %>	
-			<img src="<%= bookmark.favicon %>" class="favicon">	
-			<% end %>
+			<img src="<%= clearbit_pic(bookmark.link) %>" class="bookmark-thumbnail">
 			<%= bookmark.title.truncate(54) %>
 			</p>
-			<p><%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %></p> 
+			<p><%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %></p>
+			<% if bookmark.description %> 
 			<%= bookmark.description.truncate(160) %>
+			<% end %>
 			
 			<p class="bookmark-create-date">
 			<% if bookmark.created_at > Time.now.beginning_of_day %>
@@ -24,7 +25,7 @@
 			</p>
 			 
 		</div>
- 		<div class="col-md-3 col-sm-12">
+ 		<div class="col-md-2 col-sm-12">
 	 		<div class="bookmark-item-actions">
 	 			<% if bookmark.like %>
 					<%= link_to bookmark_like_path(bookmark_id: bookmark.id, id: bookmark.like.id), method: :delete do %>

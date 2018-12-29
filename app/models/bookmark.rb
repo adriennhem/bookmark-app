@@ -9,15 +9,14 @@ class Bookmark < ApplicationRecord
 
 	algoliasearch do
 		attribute :title, :description, :link, :tag_list, :viewable_by, :active
-
 	end
 
 	def set_metadata
-		page = MetaInspector.new(self.link)
-		self.title = page.title
-		self.description = page.best_description
-		self.favicon = page.images.favicon
-		self.host = page.host
+		paga = MetaInspector.new(self.link)
+		self.title = paga.title
+		self.description = paga.best_description
+		self.favicon = paga.images.favicon
+		self.thumbnail = paga.images.first
 	end
 
 	def set_tag_owner
