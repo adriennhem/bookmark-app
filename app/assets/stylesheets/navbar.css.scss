@@ -6,6 +6,7 @@
 	background-color: $light-grey !important;
 	border-color:  #e8e8e8 !important;
 	border-top: none !important;
+
 }
 
 .navbar-default a {
@@ -25,10 +26,7 @@
 	width: 50%;
 }
 
-.navbar-nav > .active > a, .dropdown.open > a {
-	background-color: $light-grey !important;
-	color: $neon-blue !important;
-}
+
 
 .btn.btn-primary:disabled, .btn.btn-primary:focus-within, .btn.btn-primary:active:focus,
 .btn.btn-primary:active:hover, .btn.btn-primary:active, .btn.btn-primary:hover, .btn.btn-primary {
@@ -50,7 +48,18 @@
 
 .sidebar {
 	list-style: none;
+	height: 100%; /* Full-height: remove this if you want "auto" height */
+	width: 160px; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 20px;
 	/*float: left;*/
+}
+
+.sidebar > .active > a, .dropdown.open > a {
+	background-color: $light-grey !important;
+	color: $neon-blue !important;
 }
 
 .sidebar-item {

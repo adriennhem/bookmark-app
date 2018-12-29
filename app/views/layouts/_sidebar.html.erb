@@ -1,4 +1,8 @@
 <ul class="sidebar" id="sidebar-tags">
+	<li class="sidebar-item"><%= link_to "Home", bookmarks_path %></li>
+    <li class="sidebar-item"><%= link_to "Liked", liked_bookmarks_path %></li>
+    <li class="sidebar-item"><%= link_to "Archived", archived_bookmarks_path %></li>
+	<hr>
 	<% @tags.each do |tag| %>
 		<li class="sidebar-item">
 			<%= link_to bookmarks_path(tag: tag.name) do %>

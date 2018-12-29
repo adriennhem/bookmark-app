@@ -1,8 +1,8 @@
 var ready;
 ready = function () {
     var url = window.location;
-    $('ul.navbar-left a[href="'+ url +'"]').parent().addClass('active');
-    $('ul.navbar-left a').filter(function() {
+    $('ul.sidebar a[href="'+ url +'"]').parent().addClass('active');
+    $('ul.sidebar a').filter(function() {
          return this.href == url;
         }).parent().addClass('active');
 };
