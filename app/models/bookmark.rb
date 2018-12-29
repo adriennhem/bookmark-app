@@ -17,6 +17,7 @@ class Bookmark < ApplicationRecord
 		self.title = page.title
 		self.description = page.best_description
 		self.favicon = page.images.favicon
+		self.host = page.host
 	end
 
 	def set_tag_owner

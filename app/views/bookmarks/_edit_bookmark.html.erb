@@ -1,7 +1,22 @@
-<div id="modal-edit-fields">
+<h2>Edit Bookmark</h2>
+<hr>
+
 <%= form_for @bookmark do |f| %>
+	<div class="form-group">
+	<%= f.label :title %>	
 	<%= f.text_field :title, class: "form-control" %>
+	</div>
+	<div class="form-group">
+	<%= f.label :link %>
+	<%= f.text_field :link, class: "form-control" %>
+	</div>
+	<div class="form-group">
+	<%= f.label :description %>
+	<%= f.text_area :description, columns: 5, rows: 10, class: "form-control" %>
+	</div>
+	<div class="form-group">
+	<%= f.label :tag_list %> <span>(separate tags with commas)</span>
 	<%= f.text_field :tag_list, class: "form-control"  %>
+	</div>
 	<%= f.submit "Update", class: "btn btn-primary" %>
 <% end %>
-</div>

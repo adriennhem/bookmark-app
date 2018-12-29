@@ -14,10 +14,11 @@
   <body id="body">
     <%= render 'shared/navbar' %>
     <div class="container-fluid">
+      
       <% if devise_controller? %>
-     
+     <div class="col-md-8 col-md-offset-1">
         <%= yield %>
-  
+      </div>
       <% else %>
       <div class="col-md-2 col-md-offset-1">
         <%= render 'layouts/sidebar' %>
