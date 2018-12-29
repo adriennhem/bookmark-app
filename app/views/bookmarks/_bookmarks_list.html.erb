@@ -1,16 +1,21 @@
 <% @bookmarks.each do |bookmark| %>
 	<div class="bookmark-item col-md-12">
-		<div class="col-md-9">
+		<div class="col-md-9 col-sm-12">
 			<p class="bookmark-title">
+			<img src="<%= bookmark.favicon %>" class="favicon">	
 			<%= bookmark.title %>
 			</p>
-			<p><%= link_to bookmark.link, bookmark.link, class: "bookmark-url" %></p> 
+			<p><%= link_to bookmark.link, bookmark.link, class: "bookmark-url", target: "_blank" %></p> 
 			<%= bookmark.description %>
-			<p class="bookmark-tags"><b><%= bookmark.tag_list %></b></p>
+			<p class="bookmark-tags">
+				<% bookmark.tags.each do |tag| %>
+					<span class="badge"> <%= tag %></span>		
+				<% end %>
+			</p>
 			 
 		</div>
- 		<div class="col-md-3">
-	 		<div class="bookmark-item-actions pull-right">
+ 		<div class="col-md-3 col-sm-12">
+	 		<div class="bookmark-item-actions">
 	 			<% if bookmark.like %>
 					<%= link_to bookmark_like_path(bookmark_id: bookmark.id, id: bookmark.like.id), method: :delete do %>
 		 				<i class="fa fa-heart active"></i>

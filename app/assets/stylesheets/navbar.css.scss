@@ -1,0 +1,72 @@
+@import "variable";
+
+/* NAVBAR */
+
+.navbar-default {
+	background-color: $light-grey !important;
+	border-color:  #e8e8e8 !important;
+	border-top: none !important;
+}
+
+.navbar-default a {
+	color: $dark-blue !important;
+	font-family: $font-text;
+}
+
+.navbar .navbar-brand {
+	font-family: $font-title;
+	font-size: 18px; 
+	font-weight: 700;
+	color: $neon-blue !important;
+	padding-left: 50px;
+}
+
+.navbar.navbar-left {
+	width: 50%;
+}
+
+.navbar-nav > .active > a, .dropdown.open > a {
+	background-color: $light-grey !important;
+	color: $neon-blue !important;
+}
+
+.btn.btn-primary:disabled, .btn.btn-primary:focus-within, .btn.btn-primary:active:focus,
+.btn.btn-primary:active:hover, .btn.btn-primary:active, .btn.btn-primary:hover, .btn.btn-primary {
+	background-color: $flash-blue !important;
+	color: #fff !important;
+	border-color: $flash-blue;
+	opacity: 0.9;
+}
+
+.btn.btn-primary:disabled, .btn.btn-primary:active, .btn.btn-primary:active:focus, .btn-primary.active {
+	background-color: $flash-blue !important;
+	border: none;
+	outline: none !important;
+	opacity: 0.9;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+	list-style: none;
+	/*float: left;*/
+}
+
+.sidebar-item {
+	margin-bottom: 20px;
+	font-weight: 4	00;
+}
+
+.sidebar-item i {
+	margin-right: 7px;
+}
+
+.sidebar-item a {
+	color: $dark-blue;
+	text-decoration: none !important;
+}
+
+.sidebar-item a:hover {
+	color: $dark-blue;
+}

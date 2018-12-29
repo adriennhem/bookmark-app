@@ -1,57 +1,27 @@
-$font-title: 'Varela Round', sans-serif;
-$font-text: 'Montserrat', sans-serif;
+@import "variable";
 
-$dark-grey: #383838;
-$medium-grey: #888888;
 
 /* BODY */
 
 #body {
-	background-color: #f4f4f4;
+	background-color: $light-grey;
 	font-family: $font-text;
 }
 
 
-a {
-	color: #000;
-}
-
-
-h1, h2, h3, h4, h5, h6, .sidebar, .btn {
+h1, h2, h3, h4, h5, h6 {
 	font-family: $font-title;
+	color: $dark-blue;
 }
 
 
 .badge {
-	background-color: #FFEB3B !important;
-	color: #000 !important; 
+	background-color: $flash-blue !important;
+	color: #fff !important; 
 }
 
 
-/* SIDEBAR */
 
-.sidebar {
-	list-style: none;
-	/*float: left;*/
-}
-
-.sidebar-item {
-	margin-bottom: 20px;
-	font-weight: 4	00;
-}
-
-.sidebar-item i {
-	margin-right: 7px;
-}
-
-.sidebar-item a {
-	color: #000;
-	text-decoration: none !important;
-}
-
-.sidebar-item a:hover {
-	color: #000;
-}
 
 /* bright yellow #FFEB3B https://fontpair.co/ */
 
@@ -67,10 +37,23 @@ h1, h2, h3, h4, h5, h6, .sidebar, .btn {
 	border: 1px solid #F0F0F0;
 }
 
+.bookmark-item:hover .bookmark-item-actions {
+	display: block;
+}
+
+.bookmark-item-actions {
+	display: none;
+}
+
+.bookmark-thumbnail img {
+	max-width:100%;
+	max-height:100%;
+}
+
 .bookmark-title {
-	color: $dark-grey;
-	font-weight: 700;
+	color: $dark-blue;
 	margin-bottom: 5px;
+	font-size: 18px;
 }
 
 .bookmark-url {
@@ -81,22 +64,18 @@ h1, h2, h3, h4, h5, h6, .sidebar, .btn {
 	margin-top: 5px;
 }
 
-.bookmark-item-actions a {
-	text-decoration: none;
-}
-
-.bookmark-item-actions a:hover {
+.bookmark-item-actions a, .bookmark-item-actions a:hover, .bookmark-item-actions a:active,.bookmark-item-actions a:active:focus {
 	text-decoration: none;
 }
 
 .bookmark-item i {
 	margin-right: 5px;
-	color: #000;
+	color: $dark-blue;
 }
 
 .bookmark-item i.active {
 	margin-right: 5px;
-	color: #08e8de;
+	color: $neon-blue;
 }
 
 /* FORM */
@@ -130,23 +109,25 @@ input.form-control:focus {
 /* BUTTONS */
 
 .btn.btn-primary {
-	background-color: #FFEB3B;
-	color: #000;
-	border-color: #FFEB3B;
+	background-color: $flash-blue;
+	color: #fff;
+	border-color: $flash-blue;
+	opacity: 0.9;
 }
 
 .btn.btn-primary:hover {
-	background-color: #FFEB3B;
-	color: #000;
-	border-color: #FFEB3B;
-	opacity: 0.9;
+	background-color: $flash-blue;
+	color:  #fff;
+	border-color: $flash-blue;
+	opacity: 0.8;
+
 }
 
 .btn.disabled:hover {
-	background-color: #FFEB3B;
-	color: #000;
-	border-color: #FFEB3B;
-	opacity: 0.9;
+	background-color: $flash-blue;
+	color: #fff;
+	border-color: $flash-blue;
+	opacity: 0.8;
 }
 
 /* SEARCH */
@@ -184,71 +165,6 @@ button.ais-search-box--reset {
 	height: 24px !important;
 	width: 24px !important;
 }
-
-/* NAVBAR MARKETING WEBSITE */
-
-.navbar-default {
-	background-color: #FFEB3B !important;
-	border-color: #fff !important;
-}
-
-.navbar-default a {
-	color: #000 !important;
-	font-family: $font-title;
-}
-
-.navbar .mark {
-  display: inline-block;
-  line-height: 0em;
-  padding-bottom: 0.5em;
-}
-
-.navbar .navbar-brand {
-	font-family: $font-title;
-	font-size: 1.5em; 
-	font-weight: 700;
-	color: #000 !important;
-	padding-left: 50px;
-}
-
-.navbar .navbar-brand:hover {
-	opacity: 0.9
-}
-
-.navbar .navbar-left {
-	width: 50%;
-}
-
-.navbar .btn-nav {
-	background-color: #000;
-	color: #FFEB3B !important;
-	font-weight: 700;
-}
-
-.navbar .btn-nav:hover {
-	background-color: #000 !important;
-	color: #FFEB3B !important;
-	font-weight: 700;
-}
-
-.navbar .btn-nav:active {
-	background-color: #000 !important;
-	color: #FFEB3B !important;
-	font-weight: 700;
-}
-
-.navbar .btn-nav:active:focus {
-	background-color: #000 !important;
-	color: #FFEB3B !important;
-	font-weight: 700;
-}
-
-.navbar .btn-nav:disabled {
-	background-color: #000 !important;
-	color: #FFEB3B !important;
-	font-weight: 700;
-}
-
 
 
 

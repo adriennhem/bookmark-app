@@ -33,7 +33,7 @@ gem 'omniauth-facebook'
 
 # Bookmarks
 gem 'valid_url'
-gem 'link_thumbnailer'
+gem 'metainspector'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'algoliasearch-rails'
 gem 'will_paginate', '~> 3.1.0'

@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
   require 'will_paginate/array'
   # before_action :authenticate_user!
-  before_action :set_tags, except: [:create, :update, :destroy, :toggle_active]
+  before_action :set_tags, only: [:index, :liked, :archived, :search, :edit]
 
 
   def index
@@ -22,7 +22,6 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
-    current_user.tag(@bookmark, on: :tags, with: params[:bookmark][:tag_list])
     respond_to do |format|
     if @bookmark.save 
       flash[:notice] = "Successfully Saved"
@@ -86,7 +85,7 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active, :title)
+    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active, :title, :thumbnail)
   end
 
   def set_tags

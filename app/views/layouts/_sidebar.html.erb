@@ -1,26 +1,8 @@
-<ul class="sidebar">
-	<li class="sidebar-item">
-		<%= link_to bookmarks_path do %>
-			<i class="fa fa-igloo"></i> Home
-		<% end %>
-	</li>
-	<li class="sidebar-item">
-		<%= link_to liked_bookmarks_path do %>
-			<i class="far fa-heart"></i> Liked
-		<% end %>
-	</li>
-	<li class="sidebar-item">
-		<%= link_to archived_bookmarks_path do %>
-			<i class="fa fa-archive"></i> Archived
-		<% end %>
-	</li>
-<!-- 	<li class="sidebar-item"><i class="far fa-comment-alt"></i>  Notes</li> -->
-
-	<hr>
+<ul class="sidebar" id="sidebar-tags">
 	<% @tags.each do |tag| %>
 		<li class="sidebar-item">
 			<%= link_to bookmarks_path(tag: tag.name) do %>
-			 <b># <%= tag %></b>  <span class="badge"><%= tag.taggings_count %></span> 
+			 # <%= tag %> <span class="badge"><%= tag.taggings_count %></span> 
 			<% end %>
 		</li>
 	<% end %>

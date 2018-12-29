@@ -1,4 +1,14 @@
+$font-title: 'Roboto Mono', monospace;
+$font-text: 'Roboto', sans-serif;
 
+$dark-grey: #383838;
+$medium-grey: #888888;
+
+$light-grey: #F7F8F9;
+$dark-blue: #363355;
+$neon-blue: #2228CD;
+$flash-blue: #414CC8;
+$darker-grey: #868499;
 
 /* DEVISE */
 
@@ -13,11 +23,7 @@
 	opacity: 0.5;
 }
 
-.btn.btn-primary:disabled, .btn.btn-primary:active, .btn.btn-primary:active:focus {
-	background-color: #FFEB3B !important;
-	border: none;
-	outline: none !important;
-}
+
 
 /* DEVISE EDIT */
 
