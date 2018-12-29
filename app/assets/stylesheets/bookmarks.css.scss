@@ -9,7 +9,7 @@
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .edit-title {
 	font-family: $font-title;
 	color: $dark-blue;
 }
@@ -20,10 +20,10 @@ h1, h2, h3, h4, h5, h6 {
 	color: #fff !important; 
 }
 
+.blue-link, .blue-link:hover {
+	color: $medium-grey;
+}
 
-
-
-/* bright yellow #FFEB3B https://fontpair.co/ */
 
 
 /* BOOKMARKS */
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 input.form-control:focus {
-	box-shadow: 0 0 2px #FFEB3B;
+	box-shadow: 0 0 2px $neon-blue;
 }
 
 .form-inline .form-control {

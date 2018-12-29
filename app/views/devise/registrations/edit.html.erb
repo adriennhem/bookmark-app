@@ -1,6 +1,5 @@
-<div class="row">
-  <div class="container-fluid">
-    <div class="row">
+
+  
 
       <h2 class="edit-title">Settings</h2>
       <hr>
@@ -51,13 +50,18 @@
       </div>
 
       <% end %>
-    </div>
+
     
     <hr>
     
+    <div class="col-sm-12">
+    <br>
+    <p><%= link_to "Cancel my account", registration_path(resource_name), class: "blue-link", data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    </div>
+
+   
 
 
-  </div>
-</div>
+
+

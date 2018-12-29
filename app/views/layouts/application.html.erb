@@ -14,12 +14,18 @@
   <body id="body">
     <%= render 'shared/navbar' %>
     <div class="container">
+      <% if devise_controller? %>
+     
+        <%= yield %>
+  
+      <% else %>
       <div class="col-md-2">
         <%= render 'layouts/sidebar' %>
       </div>
       <div class="col-md-10">
         <%= yield %>
       </div>
+      <% end %>
     </div>
   </body>
 </html>
