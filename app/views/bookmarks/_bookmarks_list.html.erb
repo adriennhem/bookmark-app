@@ -22,7 +22,9 @@
 			</p>
 			<p class="bookmark-tags">
 				<% bookmark.tags.each do |tag| %>
-					<span class="badge"> <%= tag %></span>		
+					<%= link_to bookmarks_path(tag: tag.name) do %>
+						# <%= tag %>
+					<% end %>	
 				<% end %>
 			</p>
 			 
