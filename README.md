@@ -1,24 +1,8 @@
-# README
+# Kiip 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## This is a bookmark app with the following features
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Save bookmarks 
+- Add tags to bookmarks 
+- Search through bookmarks and tags via the Algolia API 
+- Get logo from the Clearbit logo API
