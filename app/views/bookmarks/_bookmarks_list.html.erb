@@ -3,12 +3,14 @@
 		<div class="col-md-10 col-sm-12">
 			
 			<p class="bookmark-title">
-			<img src="<%= clearbit_pic(bookmark.link) %>" class="bookmark-thumbnail">
+			<img src="<%= logo_clearbit(bookmark.link) %>" class="bookmark-thumbnail">
+			<%= link_to bookmark.link, target: "_blank" do %>
 			<%= bookmark.title.truncate(54) %>
+			<% end %>
 			</p>
 			<p><%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %></p>
 			<% if bookmark.description %> 
-			<%= bookmark.description.truncate(160) %>
+			<%= bookmark.description.truncate(110) %>
 			<% end %>
 			
 			<p class="bookmark-create-date">
@@ -46,8 +48,6 @@
 	 				<i class="fa fa-trash"></i>
 	 			<% end %>
 	 			<%= link_to "Edit", edit_bookmark_path(bookmark), "data-toggle" => "modal", :class => 'btn btn-mini', :id => 'edit_modal_link', "data-toggle" => "modal" %>
-
-
 	 		</div>
  		</div>
 	</div>

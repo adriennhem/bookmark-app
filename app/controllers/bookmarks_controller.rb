@@ -22,6 +22,8 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = current_user.bookmarks.build(bookmark_params)
+    current_user.tag(@bookmark, :with => params[:bookmark][:tag_list], :on => :tags) 
+    @bookmark.tag_bookmark =  params[:bookmark][:tag_list]
     respond_to do |format|
     if @bookmark.save 
       flash[:notice] = "Successfully Saved"
@@ -40,6 +42,8 @@ class BookmarksController < ApplicationController
 
   def update
     @bookmark = Bookmark.find(params[:id])
+    current_user.tag(@bookmark, :with => params[:bookmark][:tag_bookmark], :on => :tags) 
+    @bookmark.tag_list =  params[:bookmark][:tag_bookmark]
     if @bookmark.update(bookmark_params)
       flash[:notice] = "Saved..."
     else
@@ -85,7 +89,7 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active, :title, :thumbnail, :description)
+    params.require(:bookmark).permit(:link, :tag_list, :viewable_by, :active, :title, :thumbnail, :description, :tag_bookmark)
   end
 
   def set_tags

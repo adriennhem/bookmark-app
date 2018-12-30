@@ -15,7 +15,14 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav navbar-nav navbar-left">
-       
+        <% if user_signed_in? %>
+          <%= form_tag search_bookmarks_path, method: :get, class: "navbar-form navbar-left col-md-5" do |f| %>
+          <div class="form-group">
+          <%= text_field_tag :q, params[:q], class: "form-control" %>
+          <%= submit_tag "search", name: nil, class: "btn btn-nav hidden" %>
+          </div>
+          <% end %> 
+      <% end %>
      </ul>
 
       <ul class="nav navbar-nav navbar-right">

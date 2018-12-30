@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_29_154102) do
+ActiveRecord::Schema.define(version: 2018_12_30_011940) do
+
+  create_table "articles", force: :cascade do |t|
+    t.text "content"
+    t.integer "bookmark_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bookmark_id"], name: "index_articles_on_bookmark_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "bookmarks", force: :cascade do |t|
     t.string "link"
@@ -24,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_12_29_154102) do
     t.integer "viewable_by"
     t.string "thumbnail"
     t.string "host"
+    t.string "tag_bookmark"
   end
 
   create_table "likes", force: :cascade do |t|

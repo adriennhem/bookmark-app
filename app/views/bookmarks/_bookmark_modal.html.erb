@@ -15,7 +15,7 @@
             <%= f.text_field :link, label: false, placeholder: "www.example.com/article.html", class: "form-control" %> 
             </div>
             <div class="form-group">
-            <%= f.text_field :tag_list, value: f.object.tag_list.to_s, placeholder: "Add your tags, separated by commas", class: "form-control" %>
+            <%= f.text_field :tag_list, placeholder: "Add your tags, separated by commas", class: "form-control" %>
             </div>
             <%= f.hidden_field :viewable_by, value: current_user.id %>
           
