@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+	include Pundit
+  	rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
     layout :layout_for_devise
 	before_action :set_tags, if: :devise_controller?
 
@@ -22,6 +24,14 @@ class ApplicationController < ActionController::Base
 	    "website"
 	  end
   	end
+
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = "You are not authorized to perform this action."
+    redirect_to(request.referrer || root_path)
+  end
 
     def set_tags
 	  if user_signed_in? 

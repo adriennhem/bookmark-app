@@ -39,10 +39,12 @@ class BookmarksController < ApplicationController
 
   def edit
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
   end
 
   def update
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     current_user.tag(@bookmark, :with => params[:bookmark][:tag_bookmark], :on => :tags) 
     @bookmark.tag_list =  params[:bookmark][:tag_bookmark]
     if @bookmark.update(bookmark_params)
