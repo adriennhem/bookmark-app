@@ -22,7 +22,6 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-
 # Design 
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'jquery-rails'
