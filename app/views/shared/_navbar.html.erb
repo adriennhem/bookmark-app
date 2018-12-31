@@ -16,7 +16,7 @@
           <%= form_tag search_bookmarks_path, method: :get, class: "navbar-form navbar-left col-md-12" do |f| %>
           <div class="form-group">
           <i class="fas fa-search"></i>
-          <%= text_field_tag :q, params[:q], placeholder: "Search", class: "form-control" %>
+          <%= text_field_tag :q, params[:q], placeholder: "Search", autocomplete: "off", class: "form-control" %>
           <%= submit_tag "search", name: nil, class: "btn btn-nav hidden" %>
           </div>
           <% end %> 

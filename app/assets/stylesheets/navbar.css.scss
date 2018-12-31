@@ -39,10 +39,8 @@
 	background-color: $light-grey;
 	border-radius: 0;
 	color: $neon-blue;	
-}
-
-.navbar-form {
 	margin-left: -40px !important;
+	min-width: 400px;
 }
 
 .navbar-form .form-control::placeholder {

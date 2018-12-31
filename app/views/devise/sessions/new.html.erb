@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <h2 class="text-center">Log In</h2>
+    <h2 class="text-center">Sign In</h2>
     <br>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email", class: "form-control"  %>
+    <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "off", class: "form-control"  %>
   </div>
 
   <div class="form-group">
-    <%= f.password_field :password, placeholder: "Password", autocomplete: "current-password", class: "form-control" %>
+    <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: "form-control" %>
   </div>
   <br>
   
@@ -23,11 +23,14 @@
 
   <br>
 
-    <%= f.submit "Log In", class: "btn btn-primary btn-form" %>
+    <%= f.submit "Sign In", class: "btn btn-primary btn-form" %>
+  
+    
 <% end %>
+<hr>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-form" %>
 
-<br>
-
+<hr>
 <%= render "devise/shared/links" %>
   </div>
 </div>

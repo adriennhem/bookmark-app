@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
-  root 'pages#home'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
   resources :bookmarks do
   	get 'liked', on: :collection
   	get 'archived', on: :collection

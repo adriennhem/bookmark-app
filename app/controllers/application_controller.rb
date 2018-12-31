@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
 	  	"application"
 	  elsif controller_name == "bookmarks"
 	  	"application"
+	  elsif devise_controller? && action_name == "new"
+	  	"application"
 	  else
 	    "website"
 	  end

@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6, .edit-title {
 
 .blue-link, .blue-link:hover {
 	color: $medium-grey;
+	text-decoration: none;
 }
 
 
@@ -134,6 +135,28 @@ input.form-control:focus {
 	border-color: $flash-blue;
 	opacity: 0.8;
 }
+
+
+.btn.btn-facebook, .btn-facebook:hover {
+  border: 1px solid #3B5998;
+  background-color: #3B5998;
+  color: #fff !important;
+}
+
+.btn.btn-facebook:active {
+  outline: none;
+  border-color: #2d467b;
+  background-color: #2d467b;
+}
+
+.btn-form {
+	width: 100%;
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	font-weight: 700 !important;
+}
+
+
 
 /* SEARCH */
 
