@@ -30,6 +30,10 @@
 <hr>
 <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-facebook btn-form" %>
 
+<%= link_to user_google_oauth2_omniauth_authorize_path do %>
+  <%= image_tag("btn_google_signin_light_normal_web@2x.png",  class: "btn-google") %>
+<% end %>
+
 <hr>
 <%= render "devise/shared/links" %>
   </div>
