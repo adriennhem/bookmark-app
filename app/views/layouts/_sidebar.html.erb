@@ -7,13 +7,17 @@
 	<li class="sidebar-item"><%= link_to "Home", bookmarks_path %></li>
     <li class="sidebar-item"><%= link_to "Liked", liked_bookmarks_path %></li>
     <li class="sidebar-item"><%= link_to "Archived", archived_bookmarks_path %></li>
+    <li class="sidebar-item"><%= link_to "Find Duplicates", duplicates_bookmarks_path %></li>
 	<hr>
+
+	<% if controller.action_name != "duplicates" %>
 	<% @tags.each do |tag| %>
 		<li class="sidebar-item">
 			<%= link_to bookmarks_path(tag: tag.name) do %>
 			 # <%= tag %> <span class="badge"><%= tag.taggings_count %></span> 
 			<% end %>
 		</li>
+	<% end %>
 	<% end %>
 </ul>
 

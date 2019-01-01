@@ -1,0 +1,3 @@
+<% @duplicate_records.each do |bookmark| %>
+	<p><%= bookmark.link %> <%= link_to "Remove dupplicate", bookmark_path(bookmark), method: :delete, remote: true %></p> 
+<% end %> 

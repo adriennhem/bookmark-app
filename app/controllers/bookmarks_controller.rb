@@ -59,7 +59,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy 
     respond_to do |format|
-      format.html { redirect_to bookmarks_path, notice: 'Bookmark was successfully destroyed.' }
+      format.html { redirect_to request.referrer, notice: 'Bookmark was successfully destroyed.' }
       format.json { render :destroy, status: :no_content }
     end
   end
@@ -87,6 +87,13 @@ class BookmarksController < ApplicationController
     @q = params['q']
     return if @q.blank?
     @hits = current_user.bookmarks.search(@q)
+  end
+
+  def duplicates
+    # @bookmarks = current_user.bookmarks.where(active: true).group(:link).having("count(link) > 1")
+    columns_that_make_record_distinct = [:link]
+    distinct_ids = current_user.bookmarks.select("MIN(id) as id").group(:link).map(&:id)
+    @duplicate_records = current_user.bookmarks.where.not(id: distinct_ids)
   end
 
   private

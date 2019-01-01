@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   	get 'liked', on: :collection
   	get 'archived', on: :collection
     get 'search', on: :collection 
+    get 'duplicates', on: :collection 
   	member do 
   	  patch :toggle_active
   	end
