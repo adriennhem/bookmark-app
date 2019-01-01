@@ -22,3 +22,13 @@
 	font-size: 14px;
 	color: $medium-grey;
 }
+
+.editable {
+	border-bottom: 1px dotted #000;
+}
+
+.bookmark-item input {
+	min-width: 100% !important;
+	outline: 0;
+	border: none;
+}

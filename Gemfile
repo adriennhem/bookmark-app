@@ -43,6 +43,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'public_suffix'
 
 
+gem 'best_in_place'
+
 
 gem 'figaro'
 # Reduces boot times through caching; required in config/boot.rb

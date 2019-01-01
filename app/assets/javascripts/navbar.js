@@ -9,3 +9,9 @@ ready = function () {
 
 $(document).ready(ready);
 $(document).on('turbolinks:load', ready);
+
+$(document).on('turbolinks:load', function() {
+	$('.best_in_place').best_in_place();
+	$('.best_in_place').addClass('editable');
+})
+

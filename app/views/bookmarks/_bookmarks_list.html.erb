@@ -1,17 +1,36 @@
+<% if params[:edit] == "enabled" %>
+	<%= link_to "Finished Editing", request.parameters.merge(edit: "disabled") %>
+<% else %>
+	<%= link_to "Edit Bookmarks", request.parameters.merge(edit: "enabled") %>
+<% end %>
+
+
 <% @bookmarks.each do |bookmark| %>
 	<div class="bookmark-item col-md-12">	
 		<div class="col-md-10 col-sm-12">
 			
-			<p class="bookmark-title">
+			
+			<div class="bookmark-title">
 			<img src="<%= logo_clearbit(bookmark.link) %>" class="bookmark-thumbnail">
-			<%= link_to bookmark.link, target: "_blank" do %>
-			<%= bookmark.title.truncate(54) %>
+			<% if params[:edit] == "enabled" %>
+				<%= best_in_place_if params[:edit] == "enabled", bookmark, :title %>
+			<% else %>
+				<%= link_to bookmark.title, bookmark.link, target: "_blank" %>
+			<% end %>
+			</div>
+			
+			<p>
+			<% if params[:edit] == "enabled" %>
+				 <%= best_in_place_if params[:edit] == "enabled", bookmark, :link, class: "bookmark-url" %> 
+			<% else %>
+				<%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %>
 			<% end %>
 			</p>
-			<p><%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %></p>
+
+
 			<% if bookmark.description %> 
 			<p class="bookmark-description">
-			<%= bookmark.description.truncate(110) %>
+			<%= best_in_place_if params[:edit] == "enabled", bookmark, :description, as: :textarea, class: "test" %>
 			</p>
 			<% end %>
 			
@@ -57,5 +76,6 @@
 	</div>
 
 <% end %>
+
 
 
