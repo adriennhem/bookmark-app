@@ -10,7 +10,9 @@
 			</p>
 			<p><%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %></p>
 			<% if bookmark.description %> 
+			<p class="bookmark-description">
 			<%= bookmark.description.truncate(110) %>
+			</p>
 			<% end %>
 			
 			<p class="bookmark-create-date">
@@ -53,6 +55,7 @@
 	 		</div>
  		</div>
 	</div>
+
 <% end %>
 
 

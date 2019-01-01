@@ -1,203 +1,24 @@
-@import "variable";
-
-/* BODY */
-
-#body {
-	background-color: $light-grey;
-	font-family: $font-text; 
-	padding-top: 70px;
-}
-
-
-h1, h2, h3, h4, h5, h6, .edit-title {
-	font-family: $font-title;
-	color: $dark-blue;
-}
-
-
-.badge {
-	background-color: $flash-blue !important;
-	color: #fff !important; 
-}
-
-.blue-link, .blue-link:hover {
-	color: $medium-grey;
-	text-decoration: none;
-}
-
-
-
-/* BOOKMARKS */
+@import "variables";
 
 .bookmark-item {
-	background-color: #ffffff;
-	margin-bottom: 10px;
-	padding-bottom: 20px;
-	padding-top: 20px;
-	border-radius: 5px;
-	border: 1px solid #F0F0F0;
+	border-bottom: 1px solid $light-grey;
 }
 
-.bookmark-item:hover .bookmark-item-actions {
-	display: block;
+.bookmark-item img {
+	height: 24px;
 }
 
-.bookmark-item-actions {
-	display: none;
-}
-
-.bookmark-thumbnail {
-	height: 28px;
-}
-
-.bookmark-title {
-	font-family: $font-title;
-	color: $dark-blue;
+.bookmark-title a {
+	font-weight: 700;
+	color: $soft-black !important;
 	font-size: 16px;
 }
 
 .bookmark-url {
+	color: $flash-green;
+}
+
+.bookmark-description {
+	font-size: 14px;
 	color: $medium-grey;
 }
-
-.bookmark-tags {
-	margin-top: 5px;
-	color: $neon-blue;
-}
-
-.bookmark-item-actions a, .bookmark-item-actions a:hover, .bookmark-item-actions a:active,.bookmark-item-actions a:active:focus {
-	text-decoration: none;
-}
-
-.bookmark-item i {
-	margin-right: 5px;
-	color: $dark-blue;
-}
-
-.bookmark-item i.active {
-	margin-right: 5px;
-	color: red;
-}
-
-.bookmark-create-date {
-	color: $medium-grey;
-	margin-top: 5px;
-}
-
-/* FORM */
-
-
-.form-control {
-	border-color: #F0F0F0 !important;
-
-}
-
-input.form-control:focus {
-	box-shadow: 0 0 2px $neon-blue;
-}
-
-.form-inline .form-control {
-	min-width: 100%;
-}
-
-.form-inline .btn {
-	min-width: 100%;
-}
-
-
-/* FAVICON */
-
-.favicon {
-	height: 22px;
-}
-
-
-/* BUTTONS */
-
-.btn.btn-primary {
-	background-color: $flash-blue;
-	color: #fff;
-	border-color: $flash-blue;
-	opacity: 0.9;
-}
-
-.btn.btn-primary:hover {
-	background-color: $flash-blue;
-	color:  #fff;
-	border-color: $flash-blue;
-	opacity: 0.8;
-
-}
-
-.btn.disabled:hover {
-	background-color: $flash-blue;
-	color: #fff;
-	border-color: $flash-blue;
-	opacity: 0.8;
-}
-
-
-.btn.btn-facebook, .btn-facebook:hover {
-  border: 1px solid #3B5998;
-  background-color: #3B5998;
-  color: #fff !important;
-}
-
-.btn.btn-facebook:active {
-  outline: none;
-  border-color: #2d467b;
-  background-color: #2d467b;
-}
-
-.btn-form {
-	width: 100%;
-	padding-top: 10px !important;
-	padding-bottom: 10px !important;
-	font-weight: 700 !important;
-}
-
-.btn-google {
-	width: 45%;
-	margin-top: 20px;
-}
-	
-
-
-/* SEARCH */
-
-
-#search-box input {
-	min-width: 100%;
-	border: none;
-	background-color: #f4f4f4;
-	border-bottom: 1px solid #BEBEBE;
-	outline: none;
-	padding: 10px 0;
-}
-
-
-.ais-search-box--magnifier 	svg {
-	position: relative;
-	top: -30px;
-	right: 25px;
-	height: 16px !important;
-	width: 16px !important;
-	color: #BEBEBE;
-}
-
-button.ais-search-box--reset {
-	background-color: #f4f4f4;
-	color: #000;
-	border: none;
-}
-
-.ais-search-box--reset-wrapper {
-	position: relative;
-	top: -45px;
-	right: -100%;
-	height: 24px !important;
-	width: 24px !important;
-}
-
-
-
