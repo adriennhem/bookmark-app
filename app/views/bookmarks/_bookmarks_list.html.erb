@@ -1,7 +1,7 @@
 <% if params[:edit] == "enabled" %>
-	<%= link_to "Finished Editing", request.parameters.merge(edit: "disabled") %>
+	<%= link_to "Finished Editing", request.query_parameters.merge(edit: "disabled") %>
 <% else %>
-	<%= link_to "Edit Bookmarks", request.parameters.merge(edit: "enabled") %>
+	<%= link_to "Edit Bookmarks", request.query_parameters.merge(edit: "enabled") %>
 <% end %>
 
 
@@ -41,6 +41,11 @@
    				<%= bookmark.created_at.strftime("%b %d, %Y").capitalize %>  
 			<% end %>
 			</p>
+
+			
+			<% if params[:edit] == "enabled" %>
+				<%= best_in_place_if params[:edit] == "enabled", bookmark, :tag_bookmark %>
+			<% else %>
 			<p class="bookmark-tags">
 				<% bookmark.tags.each do |tag| %>
 					<%= link_to bookmarks_path(tag: tag.name) do %>
@@ -48,6 +53,7 @@
 					<% end %>	
 				<% end %>
 			</p>
+			<% end %>
 			 
 		</div>
  		<div class="col-md-2 col-sm-12">

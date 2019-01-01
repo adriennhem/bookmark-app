@@ -45,8 +45,11 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
-    current_user.tag(@bookmark, :with => params[:bookmark][:tag_bookmark], :on => :tags) 
-    @bookmark.tag_list =  params[:bookmark][:tag_bookmark]
+    if params[:bookmark][:tag_bookmark] != nil 
+      current_user.tag(@bookmark, :with => params[:bookmark][:tag_bookmark], :on => :tags) 
+      @bookmark.tag_list =  params[:bookmark][:tag_bookmark]
+      @bookmark.tag_bookmark = params[:bookmark][:tag_bookmark]
+    end
     if @bookmark.update(bookmark_params)
       flash[:notice] = "Saved..."
     else
