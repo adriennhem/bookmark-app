@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   	  patch :toggle_active
   	end
   	resources :likes, only: [:create, :destroy]
+    resources :articles, only: [:show]
   end 
 
 

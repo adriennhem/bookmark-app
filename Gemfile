@@ -42,6 +42,10 @@ gem 'algoliasearch-rails'
 gem 'will_paginate', '~> 3.1.0'
 gem 'public_suffix'
 
+# Articles
+gem 'mercury_parser'
+
+
 
 gem 'best_in_place'
 

@@ -23,9 +23,11 @@ class Bookmark < ApplicationRecord
 
 	belongs_to :user
 	has_one :like 
+	has_one :article
 	validates :link, url: true
 	before_create :set_metadata
 	before_save :set_tag_owner
+	before_create :build_default_article
 	# before_save :set_tag_owner
 
 	algoliasearch do
@@ -35,11 +37,11 @@ class Bookmark < ApplicationRecord
 	end
 
 	def set_metadata
-		paga = MetaInspector.new(self.link)
-		self.title = paga.title
-		self.description = paga.best_description
-		self.favicon = paga.images.favicon
-		self.thumbnail = paga.images.first
+		article = MercuryParser.parse(self.link)
+		self.title = article.title.to_s
+		self.description = article.excerpt.to_s
+		self.host = article.domain.to_s
+		self.thumbnail = article.lead_image_url.to_s
 	end
 
 	def set_tag_owner
@@ -47,5 +49,10 @@ class Bookmark < ApplicationRecord
       # set_owner_tag_list_on(self.user, :tags, self.tag_list)
  #    # Clear the list so we don't get duplicate taggings
       self.tag_list = nil
+  	end
+
+  	def build_default_article
+  		build_article(bookmark_id: self.id, user_id: self.user.id)
+  		true
   	end
 end

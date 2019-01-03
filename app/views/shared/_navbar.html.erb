@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -22,10 +22,15 @@
           <% end %> 
       <% end %>
      </ul>
-
+  
       <ul class="nav navbar-nav navbar-right">
- 
-    
+        <li>
+        <% if params[:edit] == "enabled" %>
+          <%= link_to "Finished Editing", request.query_parameters.merge(edit: "disabled") %>
+        <% else %>
+          <%= link_to "Edit Bookmarks", request.query_parameters.merge(edit: "enabled") %>
+        <% end %>
+        </li>
         <% if !user_signed_in? %>
           <li><%= link_to "Sign Up", new_user_registration_path %></li> 
            <li><%= link_to "Log In", new_user_session_path %></li> 

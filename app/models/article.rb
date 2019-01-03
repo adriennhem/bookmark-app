@@ -16,8 +16,9 @@ class Article < ApplicationRecord
   after_create :set_content
 
   def set_content 
-  	bookmark = Bookmark.find_by_id(self.bookmark_id)
-  	page = MetaInspector.new(bookmark.link) 
-  	self.content = page.to_s
+  	article = MercuryParser.parse(self.bookmark.link) 
+  	self.update_attribute(:content, article.content)
   end
+
+
 end

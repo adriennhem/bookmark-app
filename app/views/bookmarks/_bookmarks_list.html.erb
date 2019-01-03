@@ -1,84 +1,47 @@
-<% if params[:edit] == "enabled" %>
-	<%= link_to "Finished Editing", request.query_parameters.merge(edit: "disabled") %>
-<% else %>
-	<%= link_to "Edit Bookmarks", request.query_parameters.merge(edit: "enabled") %>
-<% end %>
+
 
 
 <% @bookmarks.each do |bookmark| %>
-	<div class="bookmark-item col-md-12">	
-		<div class="col-md-10 col-sm-12">
-			
-			
-			<div class="bookmark-title">
-			<img src="<%= logo_clearbit(bookmark.link) %>" class="bookmark-thumbnail">
-			<% if params[:edit] == "enabled" %>
-				<%= best_in_place_if params[:edit] == "enabled", bookmark, :title %>
-			<% else %>
-				<%= link_to bookmark.title, bookmark.link, target: "_blank" %>
-			<% end %>
+	<div class="bookmarkListItem col-md-12">
+		<div class="bookmarkClicks col-md-1">
+			<div class="clickCount">
+				<i class="fas fa-sort-up"></i>
+				<span>40</span>
 			</div>
-			
-			<p>
-			<% if params[:edit] == "enabled" %>
-				 <%= best_in_place_if params[:edit] == "enabled", bookmark, :link, class: "bookmark-url" %> 
-			<% else %>
-				<%= link_to bookmark.try(:host), bookmark.link, class: "bookmark-url", target: "_blank" %>
-			<% end %>
-			</p>
-
-
-			<% if bookmark.description %> 
-			<p class="bookmark-description">
-			<%= best_in_place_if params[:edit] == "enabled", bookmark, :description, as: :textarea, class: "test" %>
-			</p>
-			<% end %>
-			
-			<p class="bookmark-create-date">
-			<% if bookmark.created_at > Time.now.beginning_of_day %>
-    			<%="#{time_ago_in_words(bookmark.created_at).capitalize} ago"%>  
-			<% else %>
-   				<%= bookmark.created_at.strftime("%b %d, %Y").capitalize %>  
-			<% end %>
-			</p>
-
-			
-			<% if params[:edit] == "enabled" %>
-				<%= best_in_place_if params[:edit] == "enabled", bookmark, :tag_bookmark %>
-			<% else %>
-			<p class="bookmark-tags">
-				<% bookmark.tags.each do |tag| %>
-					<%= link_to bookmarks_path(tag: tag.name) do %>
-						# <%= tag %>
-					<% end %>	
-				<% end %>
-			</p>
-			<% end %>
-			 
 		</div>
- 		<div class="col-md-2 col-sm-12">
-	 		<div class="bookmark-item-actions">
-	 			<% if bookmark.like %>
-					<%= link_to bookmark_like_path(bookmark_id: bookmark.id, id: bookmark.like.id), method: :delete do %>
-		 				<i class="fa fa-heart active"></i>
-		 			<% end %>
-	 			<% else %>
-		 			<%= link_to bookmark_likes_path(bookmark), method: :post do %>
-		 				<i class="far fa-heart"></i>
-		 			<% end %>
-	 			<% end %>
-	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
-	 				<i class="fa fa-share"></i>
-	 			<% end %>
-	 			<%= link_to toggle_active_bookmark_path(bookmark), method: :patch, remote: true do %>
-	 				<i class="fa fa-archive"></i>
-	 			<% end %>
-	 			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
-	 				<i class="fa fa-trash"></i>
-	 			<% end %>
-	 			<%= link_to "Edit", edit_bookmark_path(bookmark), "data-toggle" => "modal", :class => 'btn btn-mini', :id => 'edit_modal_link', "data-toggle" => "modal" %>
-	 		</div>
- 		</div>
+		<div class="body col-md-8">
+			<div class="bookmarkTitle">
+				<span>
+					<% if params[:edit] == "enabled" %>
+						<%= best_in_place_if params[:edit] == "enabled", bookmark, :title %>
+					<% else %>
+						<%= link_to bookmark.title, [bookmark, bookmark.article] %>
+					<% end %>
+				</span>
+			</div>
+			<div class="bookmarkLink">
+				<% if params[:edit] == "enabled" %>
+				 	<%= best_in_place_if params[:edit] == "enabled", bookmark, :link %> 
+				<% else %>
+					<%= link_to bookmark.try(:host), bookmark.link, target: "_blank" %>
+				<% end %>
+			</div>
+			<div class="bookmarkDescription">
+				<%= best_in_place_if params[:edit] == "enabled", bookmark, :description, as: :textarea %>
+			</div>
+			<div class="bookmarkCreatedDate">
+				<% if bookmark.created_at > Time.now.beginning_of_day %>
+    				<%="#{time_ago_in_words(bookmark.created_at).capitalize} ago"%>  
+				<% else %>
+   					<%= bookmark.created_at.strftime("%b %d, %Y").capitalize %>  
+				<% end %>
+			</div>
+		</div>
+		<div class="bookmarkImage col-md-3">
+			<% if !bookmark.thumbnail.empty? %>
+			<%= image_tag "https://afrvvhywen.cloudimg.io/crop/200x200/x/#{bookmark.thumbnail}" %>
+			<% end %>
+		</div>	
 	</div>
 
 <% end %>
