@@ -3,19 +3,30 @@
 
 <% @bookmarks.each do |bookmark| %>
 	<div class="bookmarkListItem col-md-12">
-		<div class="bookmarkClicks col-md-1">
+		<div class="bookmarkClicks col-md-1 hidden">
 			<div class="clickCount">
 				<i class="fas fa-sort-up"></i>
 				<span>40</span>
 			</div>
 		</div>
-		<div class="body col-md-8">
+
+		<div class="bookmarkImage col-md-2">
+			<% if !bookmark.thumbnail.empty? %>
+			<%= image_tag "https://afrvvhywen.cloudimg.io/crop/200x200/x/#{bookmark.thumbnail}" %>
+			<% else %>
+				<%= image_tag logo_clearbit(bookmark.link) %>
+			<% end %>
+		</div>
+
+
+
+		<div class="body col-md-10">
 			<div class="bookmarkTitle">
 				<span>
 					<% if params[:edit] == "enabled" %>
 						<%= best_in_place_if params[:edit] == "enabled", bookmark, :title %>
 					<% else %>
-						<%= link_to bookmark.title, [bookmark, bookmark.article] %>
+						<%= link_to bookmark.title.capitalize, [bookmark, bookmark.article] %>
 					<% end %>
 				</span>
 			</div>
@@ -37,11 +48,7 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="bookmarkImage col-md-3">
-			<% if !bookmark.thumbnail.empty? %>
-			<%= image_tag "https://afrvvhywen.cloudimg.io/crop/200x200/x/#{bookmark.thumbnail}" %>
-			<% end %>
-		</div>	
+	
 	</div>
 
 <% end %>

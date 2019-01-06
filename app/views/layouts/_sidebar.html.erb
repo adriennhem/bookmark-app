@@ -4,11 +4,23 @@
          BookmarkStuff
       <% end %>
 	</li>
-	<li class="sidebar-item"><%= link_to "Home", bookmarks_path %></li>
-    <li class="sidebar-item"><%= link_to "Liked", liked_bookmarks_path %></li>
-    <li class="sidebar-item"><%= link_to "Archived", archived_bookmarks_path %></li>
+	<li class="sidebar-item">
+		<%= link_to bookmarks_path do %>
+			<%= image_tag 'exterior-50.png', size: "20x20" %> Home
+		<% end %>
+	</li>
+    <li class="sidebar-item">
+    	<%= link_to liked_bookmarks_path do %>
+    	<i class="fas fa-heart"></i> Favorites
+		<% end %>	
+    </li>
+    <li class="sidebar-item">
+    	<%= link_to archived_bookmarks_path do %>
+	    <%= image_tag 'archive-50.png', size: "20x15" %> Archived
+    	<% end %>
+    </li>
     <li class="sidebar-item"><%= link_to "Find Duplicates", duplicates_bookmarks_path %></li>
-	<hr>
+
 
 	<% if controller.action_name != "duplicates" %>
 	<% @tags.each do |tag| %>
