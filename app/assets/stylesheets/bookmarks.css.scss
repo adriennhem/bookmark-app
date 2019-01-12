@@ -14,50 +14,50 @@ a:hover {
 }	
 
 .navbar.navbar-default {
-	/*overflow: hidden;*/
-  	position: fixed; /* Set the navbar to fixed position */
-  	top: 0; /* Position the navbar at the top of the page */
-  	margin-left: -90px;
   	/*width: 100%;  Full width */
-	background-color: #fff;
 	border: none;
-	border-bottom: 1px solid $bg-grey;
 	z-index: 1;
+	font-family: $font-title;
+}
+
+.navbar-brand {
+	font-weight: 900;
 }
 
 .navbar-default a {
 	color: $another-black !important;
 }
 
+.navbar-form .input-group {
+	margin-left: 100px;
+}
+
 
 .navbar input, .navbar input:focus {
+	font-weight: 600;
 	border:none;
 	outline: 0;
 	box-shadow: none;
+	width: 500px !important;
 }
+
+.input-group-addon {
+	border: none !important;
+	background-color: #fff !important;
+}
+
+
+
+
+/* SIDEBAR */
 
 
  .sidebar {
      position: fixed;
-     top: 0;
-     left: 0;
      list-style: none;
-     height: 100vh;
-     width: 300px;
-     background-color: $another-black;
      z-index: 2;
-     box-shadow: inset -1px 0 0 hsla(0,0%,100%,.05)!important;
+     margin-right: -50px;
  }
-
- .sidebar .navbar-brand {
- 	color: #fff;
- 	font-weight: 900;
- 	/*margin-left: -15px;*/
- 	margin-bottom: 28px;
- 	display: block;
- 	min-width: 100%;
- }
-
 
 .sidebar-item {
 	margin-bottom: 10px;
@@ -66,11 +66,9 @@ a:hover {
 }
 
  .sidebar-item a {
- 	color: #FEFFFE;
+ 	color: $black;
  	font-weight: 500;
-
  }
-
 
 .sidebar .fa-heart {
 	color: red;
@@ -90,7 +88,6 @@ a:hover {
     background-color: #fff;
     border-bottom: 1px solid $bg-grey;
     padding-bottom: 20px;
-    margin-left: -60px;
 }
 
 .bookmarkClicks {
@@ -135,3 +132,17 @@ a:hover {
 .bookmarkImage img {
 	max-width: 100%;
 }
+
+/* bookmarkActions */
+
+.bookmarkActions i {
+	color: $another-black;
+	margin-right: 10px;
+	font-size: 16px;
+	display: none;
+}
+
+.bookmarkListItem:hover i {
+	display: inline;
+}
+

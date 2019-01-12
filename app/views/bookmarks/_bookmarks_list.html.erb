@@ -1,15 +1,12 @@
-
-
-
 <% @bookmarks.each do |bookmark| %>
-	<div class="bookmarkListItem col-md-12">
+	<div class="bookmarkListItem col-md-9">
 		<div class="bookmarkClicks col-md-1 hidden">
 			<div class="clickCount">
 				<i class="fas fa-sort-up"></i>
 				<span>40</span>
 			</div>
 		</div>
-
+		<!-- bookmark thumbnail -->
 		<div class="bookmarkImage col-md-2">
 			<% if !bookmark.thumbnail.empty? %>
 			<%= image_tag "https://afrvvhywen.cloudimg.io/crop/200x200/x/#{bookmark.thumbnail}" %>
@@ -17,10 +14,9 @@
 				<%= image_tag logo_clearbit(bookmark.link) %>
 			<% end %>
 		</div>
-
-
-
-		<div class="body col-md-10">
+		
+		<!-- bookmark body -->
+		<div class="body col-md-8">
 			<div class="bookmarkTitle">
 				<span>
 					<% if params[:edit] == "enabled" %>
@@ -47,6 +43,18 @@
    					<%= bookmark.created_at.strftime("%b %d, %Y").capitalize %>  
 				<% end %>
 			</div>
+		</div>
+
+		<div class="bookmarkActions">
+			<%= link_to edit_bookmark_path(bookmark) do %>
+				<i class="far fa-edit"></i>
+			<% end %>
+			<%= link_to toggle_active_bookmark_path(bookmark), method: :patch, remote: true do %>
+				<i class="fas fa-archive"></i>
+			<% end %>
+			<%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure you want to permanently delete this bookmark?" }, remote: true do %>
+				<i class="far fa-trash-alt"></i>
+			<% end %>
 		</div>
 	
 	</div>

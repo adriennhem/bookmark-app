@@ -19,11 +19,10 @@
 
 class Bookmark < ApplicationRecord
 	include AlgoliaSearch
-	  acts_as_taggable_on :tags
-
+	acts_as_taggable_on :tags
 	belongs_to :user
-	has_one :like 
-	has_one :article
+	has_one :like, dependent: :destroy 
+	has_one :article, dependent: :destroy
 	validates :link, url: true
 	before_create :set_metadata
 	before_save :set_tag_owner

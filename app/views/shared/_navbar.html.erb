@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -7,6 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <%= link_to bookmarks_path, class: "navbar-brand" do %>
+         BookmarkStuff
+      <% end %>
     </div>
 
 
@@ -14,8 +17,10 @@
      <ul class="nav navbar-nav navbar-left">
         <% if user_signed_in? %>
           <%= form_tag search_bookmarks_path, method: :get, class: "navbar-form navbar-left col-md-12" do |f| %>
-          <div class="form-group">
-          <i class="fas fa-search"></i>
+          <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fas fa-search"></i>
+          </div>
           <%= text_field_tag :q, params[:q], placeholder: "Search", autocomplete: "off", class: "form-control" %>
           <%= submit_tag "search", name: nil, class: "btn btn-nav hidden" %>
           </div>
@@ -24,13 +29,7 @@
      </ul>
   
       <ul class="nav navbar-nav navbar-right">
-        <li>
-        <% if params[:edit] == "enabled" %>
-          <%= link_to "Finished Editing", request.query_parameters.merge(edit: "disabled") %>
-        <% else %>
-          <%= link_to "Edit Bookmarks", request.query_parameters.merge(edit: "enabled") %>
-        <% end %>
-        </li>
+        
         <% if !user_signed_in? %>
           <li><%= link_to "Sign Up", new_user_registration_path %></li> 
            <li><%= link_to "Log In", new_user_session_path %></li> 
@@ -39,7 +38,7 @@
           <li>
             
               <%= link_to "#", data: {toggle: "modal", target: "#addBookmark" } do %>
-                <i class="fa fa-plus"></i> Add Link
+                Add Link
                <% end %>
          
           </li>
