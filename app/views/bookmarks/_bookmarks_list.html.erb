@@ -19,22 +19,33 @@
 		<div class="body col-md-8">
 			<div class="bookmarkTitle">
 				<span>
-					<% if params[:edit] == "enabled" %>
-						<%= best_in_place_if params[:edit] == "enabled", bookmark, :title %>
+					<% if params[:edit] == "#{bookmark.id}-enabled" %>
+						<%= best_in_place bookmark, :title %>
 					<% else %>
 						<%= link_to bookmark.title.capitalize, [bookmark, bookmark.article] %>
 					<% end %>
 				</span>
 			</div>
 			<div class="bookmarkLink">
-				<% if params[:edit] == "enabled" %>
-				 	<%= best_in_place_if params[:edit] == "enabled", bookmark, :link %> 
+				<% if params[:edit] == "#{bookmark.id}-enabled" %>
+				 	<%= best_in_place bookmark, :link %> 
 				<% else %>
 					<%= link_to bookmark.try(:host), bookmark.link, target: "_blank" %>
 				<% end %>
 			</div>
 			<div class="bookmarkDescription">
-				<%= best_in_place_if params[:edit] == "enabled", bookmark, :description, as: :textarea %>
+				<%= best_in_place_if params[:edit] == "#{bookmark.id}-enabled", bookmark, :description, as: :textarea %>
+			</div>
+			<div class="bookmarkTags">
+				<% if params[:edit] == "#{bookmark.id}-enabled" %>
+				 	<%= best_in_place bookmark, :tag_bookmark %> 
+				<% else %>
+					<% bookmark.tags.each do |tag| %>
+						<%= link_to bookmarks_path(tag: tag.name) do %>
+							# <%= tag %>
+						<% end %>
+					<% end %>		
+				<% end %>
 			</div>
 			<div class="bookmarkCreatedDate">
 				<% if bookmark.created_at > Time.now.beginning_of_day %>
@@ -46,8 +57,24 @@
 		</div>
 
 		<div class="bookmarkActions">
-			<%= link_to edit_bookmark_path(bookmark) do %>
-				<i class="far fa-edit"></i>
+			<% if bookmark.like %>
+				<%= link_to bookmark_like_path(bookmark_id: bookmark.id, id: bookmark.like.id), method: :delete, remote: true do %>
+		 				<i class="fa fa-heart active"></i>
+		 		<% end %>
+	 		<% else %>
+		 		<%= link_to bookmark_likes_path(bookmark), method: :post, remote: true do %>
+		 				<i class="far fa-heart"></i>
+		 		<% end %>
+	 		<% end %>
+
+			<% if params[:edit] != "#{bookmark.id}-enabled" %>
+				<%= link_to request.query_parameters.merge(edit: "#{bookmark.id}-enabled") do %>
+					<i class="far fa-edit"></i>
+				<% end %>
+			<% else %>
+				<%= link_to request.query_parameters.merge(edit: "disabled") do %>
+					<i class="far fa-edit"></i>
+				<% end %>
 			<% end %>
 			<%= link_to toggle_active_bookmark_path(bookmark), method: :patch, remote: true do %>
 				<i class="fas fa-archive"></i>

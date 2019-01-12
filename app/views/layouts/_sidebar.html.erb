@@ -21,13 +21,6 @@
     <hr>
     <li class="sidebar-item"><%= link_to "Find Duplicates", duplicates_bookmarks_path %>
     </li>
-    <li class="sidebar-item">
-        <% if params[:edit] == "enabled" %>
-          <%= link_to "Finished Editing", request.query_parameters.merge(edit: "disabled") %>
-        <% else %>
-          <%= link_to "Edit Bookmarks", request.query_parameters.merge(edit: "enabled") %>
-        <% end %>
-    </li>
     <hr>
 
 
